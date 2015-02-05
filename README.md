@@ -4,16 +4,16 @@ Work in progress
 
 ## Flavours
 
-We have two different flavours that you can use in your application. The are-you flavour, and the you-are flavour.
+We have two different flavours that you can use in your application. The ```are-you``` flavour, and the ```you-are``` flavour.
 You can use both flavours as you like but they will probably be used in different situations.
 
 ### Are you
-```
+```JavaScript
 var isNumber = are.you.a.number(10);
 ```
 
 ### You are
-```
+```JavaScript
 if(you.are.a.number(10)) {
     // ...
 }
