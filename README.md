@@ -27,7 +27,7 @@ As you can see, it would not entirely fit if we should use the ```are-you``` fla
 are.you.a.number(10); // -> true
 are.you.a.number('10'); // -> false
 are.you.a.string('Hello'); // -> true
-are.you.an.array(['yes', 'i', 'am']); -> true
+are.you.an.array(['yes', 'i', 'am']); // -> true
 ```
 
 ```JavaScript
