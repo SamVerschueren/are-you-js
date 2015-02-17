@@ -1,0 +1,10 @@
+{
+    "globalstrict": true,
+    "browser": true,
+    "node": true,
+
+    "predef": [
+        "describe",
+        "it"
+    ]
+}

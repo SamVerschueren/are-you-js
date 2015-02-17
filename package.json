@@ -1,0 +1,26 @@
+{
+  "name": "are-you-js",
+  "version": "1.0.0",
+  "description": "Readable type checking utility library",
+  "main": "are-you.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SamVerschueren/are-you-js.git"
+  },
+  "author": "Sam Verschueren <sam.verschueren@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SamVerschueren/are-you-js/issues"
+  },
+  "homepage": "https://github.com/SamVerschueren/are-you-js",
+  "devDependencies": {
+    "chai": "^2.0.0"
+  }
+}
