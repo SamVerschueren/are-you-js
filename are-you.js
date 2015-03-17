@@ -22,6 +22,14 @@
         },
         isLength: function(value) {
             return typeof value == 'number' && value > -1 && value%1 === 0 && value <= _const.MAX_SAFE_INTEGER;
+        },
+        baseIsFunction: function(value) {
+            return typeof value == 'function' || false;
+        },
+        invertFunction: function(fn) {
+            return function(value) {
+                return !fn.call(this, value);
+            };
         }
     };
 
@@ -45,6 +53,15 @@
              */
             string: function(value) {
                 return typeof value == 'string' || (_this.isObjectLike(value) && _this.objToString(value) == '[object String]') || false;
+            },
+            /**
+             * Checks if the value provided is a function.
+             *
+             * @param  {mixed}   value The value to check for.
+             * @return {boolean}       Returns `true` if the value is classified as a function, `false` otherwise.
+             */
+            'function': !(_this.baseIsFunction(/x/) || (Uint8Array && !_this.baseIsFunction(Uint8Array))) ? _this.baseIsFunction : function(value) {
+                return _this.objToString(value) == '[object Function]';
             }
         },
         an: {
@@ -54,20 +71,18 @@
             object: function(value) {
                 return typeof value == 'function' || (value && typeof value == 'object') || false;
             }
-        },
-
-        // contrary
-        not: {
-            a: {
-                number: function(value) { return !ru.a.number(value); },
-                string: function(value) { return !ru.a.string(value); }
-            },
-            an: {
-                array: function(value) { return !ru.an.array(value); },
-                object: function(value) { return !ru.an.object(value); }
-            }
         }
     };
+
+    for(var key in ru) {
+        if(ru.not === undefined) {
+            ru.not = {a: {}, an: {}};
+        }
+
+        for(var func in ru[key]) {
+            ru.not[key][func] = _this.invertFunction(ru[key][func]);
+        }
+    }
 
     exports.are = ru;
     exports.you = ru;

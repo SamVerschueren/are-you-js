@@ -44,6 +44,29 @@ describe('Are you?', function() {
                 are.you.a.number('10').should.be.false;
             });
         });
+
+        describe('#function()', function() {
+
+            it('Should return true for a function', function() {
+                are.you.a.function(function() {}).should.be.true;
+            });
+
+            it('Should return false for a string', function() {
+                are.you.a.function('test').should.be.false;
+            });
+
+            it('Should return false for an object', function() {
+                are.you.a.function({}).should.be.false;
+            });
+
+            it('Should return false for an array', function() {
+                are.you.a.function([]).should.be.false;
+            });
+
+            it('Should return false for a number', function() {
+                are.you.a.function(10).should.be.false;
+            });
+        });
     });
 
     describe('you.are', function() {
@@ -72,6 +95,29 @@ describe('Are you?', function() {
 
             it('Should return false for the string \'10\'', function() {
                 you.are.a.number('10').should.be.false;
+            });
+        });
+
+        describe('#function()', function() {
+
+            it('Should return true for a function', function() {
+                you.are.a.function(function() {}).should.be.true;
+            });
+
+            it('Should return false for a string', function() {
+                you.are.a.function('test').should.be.false;
+            });
+
+            it('Should return false for an object', function() {
+                you.are.a.function({}).should.be.false;
+            });
+
+            it('Should return false for an array', function() {
+                you.are.a.function([]).should.be.false;
+            });
+
+            it('Should return false for a number', function() {
+                you.are.a.function(10).should.be.false;
             });
         });
     });
